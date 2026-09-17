@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Caya Asset Integrity Management Platform" />
   <title>Caya — Asset Integrity Platform</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -13,37 +14,47 @@
         <div class="brand-mark">C</div>
         <div><strong>CAYA</strong><span>Asset Integrity</span></div>
       </div>
-      <nav id="main-nav">
-        <button class="nav-item active" data-page="dashboard">Dashboard</button>
+      <div class="sidebar-caption">CSAS v1.0 • MVP</div>
+      <nav id="main-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">⌂</span>Dashboard</button>
+
         <div class="nav-group">ENGINEERING DATA</div>
-        <button class="nav-item" data-page="equipment">Equipment</button>
-        <button class="nav-item" data-page="components">Components</button>
-        <button class="nav-item" data-page="services">Services & Fluids</button>
-        <button class="nav-item" data-page="materials">Materials</button>
-        <button class="nav-item" data-page="damage">Damage Mechanisms</button>
-        <button class="nav-item" data-page="methods">Inspection Methods</button>
-        <button class="nav-item" data-page="references">Engineering References</button>
+        <button class="nav-item" data-page="equipment"><span class="nav-icon">▣</span>Equipment</button>
+        <button class="nav-item" data-page="components"><span class="nav-icon">◫</span>Components</button>
+        <button class="nav-item" data-page="services"><span class="nav-icon">≋</span>Services &amp; Fluids</button>
+        <button class="nav-item" data-page="materials"><span class="nav-icon">◆</span>Materials</button>
+        <button class="nav-item" data-page="damage"><span class="nav-icon">△</span>Damage Mechanisms</button>
+        <button class="nav-item" data-page="methods"><span class="nav-icon">◎</span>Inspection Methods</button>
+        <button class="nav-item" data-page="references"><span class="nav-icon">▤</span>Engineering References</button>
+
         <div class="nav-group">INTEGRITY</div>
-        <button class="nav-item" data-page="inspection">Inspection</button>
-        <button class="nav-item" data-page="corrosion">Corrosion</button>
-        <button class="nav-item" data-page="rbi">RBI</button>
-        <button class="nav-item" data-page="ffs">FFS</button>
-        <button class="nav-item" data-page="iow">IOW</button>
+        <button class="nav-item" data-page="inspection"><span class="nav-icon">✓</span>Inspection</button>
+        <button class="nav-item" data-page="corrosion"><span class="nav-icon">◒</span>Corrosion</button>
+        <button class="nav-item" data-page="rbi"><span class="nav-icon">◈</span>RBI</button>
+        <button class="nav-item" data-page="ffs"><span class="nav-icon">◇</span>FFS</button>
+        <button class="nav-item" data-page="iow"><span class="nav-icon">↕</span>IOW</button>
+
         <div class="nav-group">SYSTEM</div>
-        <button class="nav-item" data-page="calculation">Calculation</button>
-        <button class="nav-item" data-page="workflow">Workflow</button>
-        <button class="nav-item" data-page="documents">Documents</button>
-        <button class="nav-item" data-page="administration">Administration</button>
+        <button class="nav-item" data-page="calculation"><span class="nav-icon">Σ</span>Calculation</button>
+        <button class="nav-item" data-page="workflow"><span class="nav-icon">⇄</span>Workflow</button>
+        <button class="nav-item" data-page="documents"><span class="nav-icon">▧</span>Documents</button>
+        <button class="nav-item" data-page="administration"><span class="nav-icon">⚙</span>Administration</button>
       </nav>
     </aside>
 
     <main class="main-content">
       <header class="topbar">
-        <div><span class="eyebrow">ASSET INTEGRITY MANAGEMENT</span><h1 id="page-title">Dashboard</h1></div>
-        <div class="topbar-status"><span class="status-dot"></span> Caya MVP • Phase 1</div>
+        <div>
+          <span class="eyebrow">ASSET INTEGRITY MANAGEMENT</span>
+          <h1 id="page-title">Dashboard</h1>
+        </div>
+        <div class="topbar-actions">
+          <span class="environment">DEVELOPMENT</span>
+          <span class="topbar-status"><span class="status-dot"></span>Caya MVP</span>
+        </div>
       </header>
-
       <section id="page-content" class="content"></section>
+      <footer class="footer">Caya • Asset Integrity Management Platform • CSAS Version 1.0</footer>
     </main>
   </div>
   <script src="app.js"></script>
