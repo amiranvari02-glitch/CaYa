@@ -67,4 +67,6 @@ function equipmentDetail(tag){const x=getEquipment().find(e=>e.tag===tag);if(!x)
 const originalRender=render;
 render=function(page){originalRender(page);if(page==='equipment'){renderEquipmentList();['equipment-search','equipment-type-filter','equipment-status-filter'].forEach(id=>document.getElementById(id)?.addEventListener('input',renderEquipmentList));document.getElementById('add-equipment')?.addEventListener('click',equipmentForm)}};
 
+document.querySelectorAll('.nav-item').forEach(x=>x.onclick=()=>render(x.dataset.page));
+document.querySelectorAll('[data-page]').forEach(x=>x.onclick=()=>render(x.dataset.page));
 const initial=window.location.hash.replace('#','')||'dashboard';render(initial);
