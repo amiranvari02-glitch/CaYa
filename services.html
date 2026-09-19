@@ -6,72 +6,75 @@
 <title>Caya — Services & Fluids</title>
 <link rel="stylesheet" href="styles.css">
 <style>
-body{background:#f5f6f8}.services-page{max-width:1400px;margin:0 auto;padding:32px}
-.page-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.page-top h1{margin:0}.page-top p{margin:6px 0 0;color:#687080}
-.panel{background:#fff;border:1px solid #e0e3e8;border-radius:14px;padding:24px;margin-bottom:22px;box-shadow:0 6px 20px rgba(0,0,0,.04)}
-.panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.panel-head h2{margin:0}
-.primary-btn{background:#d1007a;color:#fff;border:0;border-radius:8px;padding:11px 17px;font-weight:700;cursor:pointer}.secondary-btn{background:#fff;border:1px solid #cfd4dc;border-radius:8px;padding:10px 15px;cursor:pointer}
-.toolbar{display:flex;gap:10px;margin-bottom:16px}.search{flex:1;padding:11px 13px;border:1px solid #d4d8df;border-radius:8px}
-table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:13px 12px;border-bottom:1px solid #edf0f3}th{font-size:12px;text-transform:uppercase;color:#687080;letter-spacing:.04em}td{font-size:14px}.link{color:#a80061;font-weight:700;cursor:pointer;text-decoration:none}
-.modal{display:none;position:fixed;inset:0;background:rgba(8,9,12,.5);align-items:center;justify-content:center;padding:20px}.modal-card{background:#fff;width:min(620px,100%);border-radius:14px;padding:26px}.modal-card h2{margin-top:0}.field{margin-bottom:16px}.field label{display:block;font-weight:700;font-size:13px;margin-bottom:7px}.field input,.field textarea,.field select{width:100%;box-sizing:border-box;padding:11px;border:1px solid #d4d8df;border-radius:8px}.actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}
-.empty{padding:30px;text-align:center;color:#687080;border:1px dashed #d5d9e0;border-radius:10px}
-@media(max-width:700px){.services-page{padding:18px}.page-top,.panel-head{align-items:flex-start;gap:15px;flex-direction:column}.toolbar{flex-direction:column}.panel{overflow-x:auto}}
+.services-content{max-width:1500px}
+.modal{display:none;position:fixed;inset:0;background:rgba(8,9,12,.5);align-items:center;justify-content:center;padding:20px;z-index:20}
+.modal-card{background:#fff;width:min(620px,100%);border-radius:14px;padding:26px;box-shadow:0 20px 60px rgba(0,0,0,.18)}
+.modal-card h2{margin:0 0 20px}.field{margin-bottom:16px}.field label{display:block;font-weight:700;font-size:12px;margin-bottom:7px}.field input,.field textarea{width:100%;box-sizing:border-box;padding:11px;border:1px solid #d4d8df;border-radius:8px;font:inherit}.actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}
 </style>
 </head>
 <body>
-<div class="services-page">
-  <div class="page-top">
-    <div><h1>Services &amp; Fluids</h1><p>Controlled engineering master data for services and fluids.</p></div>
-    <a class="secondary-btn" href="index.html">← Back to Caya</a>
-  </div>
-
-  <section class="panel">
-    <div class="panel-head"><div><h2>Fluid Database</h2><p class="placeholder">Fluid names are user-defined and are not limited to a predefined list.</p></div><button class="primary-btn" id="add-fluid">+ Add Fluid</button></div>
-    <div class="toolbar"><input id="fluid-search" class="search" placeholder="Search fluid by name..."></div>
-    <div id="fluid-list"></div>
-  </section>
-
-  <section class="panel">
-    <div class="panel-head"><div><h2>Services</h2><p class="placeholder">A Service represents the process application and references a Fluid.</p></div><button class="primary-btn" id="add-service">+ Add Service</button></div>
-    <div class="empty">No service records yet.</div>
-  </section>
+<div class="app-shell">
+<aside class="sidebar">
+<div class="brand"><div class="brand-mark">C</div><div><strong>CAYA</strong><span>Asset Integrity</span></div></div>
+<div class="sidebar-caption">CSAS v1.0 • MVP</div>
+<nav aria-label="Main navigation">
+<a class="nav-item" href="index.html"><span class="nav-icon">⌂</span>Dashboard</a>
+<div class="nav-group">ENGINEERING DATA</div>
+<a class="nav-item" href="equipment.html"><span class="nav-icon">▣</span>Equipment</a>
+<a class="nav-item" href="index.html#components"><span class="nav-icon">◫</span>Components</a>
+<a class="nav-item active" href="services.html"><span class="nav-icon">≋</span>Services &amp; Fluids</a>
+<a class="nav-item" href="index.html#materials"><span class="nav-icon">◆</span>Materials</a>
+<a class="nav-item" href="index.html#damage"><span class="nav-icon">△</span>Damage Mechanisms</a>
+<a class="nav-item" href="index.html#methods"><span class="nav-icon">◎</span>Inspection Methods</a>
+<a class="nav-item" href="index.html#references"><span class="nav-icon">▤</span>Engineering References</a>
+<div class="nav-group">INTEGRITY</div>
+<a class="nav-item" href="index.html#inspection"><span class="nav-icon">✓</span>Inspection</a>
+<a class="nav-item" href="index.html#corrosion"><span class="nav-icon">◒</span>Corrosion</a>
+<a class="nav-item" href="index.html#rbi"><span class="nav-icon">◈</span>RBI</a>
+<a class="nav-item" href="index.html#ffs"><span class="nav-icon">◇</span>FFS</a>
+<a class="nav-item" href="index.html#iow"><span class="nav-icon">↕</span>IOW</a>
+<div class="nav-group">SYSTEM</div>
+<a class="nav-item" href="index.html#calculation"><span class="nav-icon">Σ</span>Calculation</a>
+<a class="nav-item" href="index.html#workflow"><span class="nav-icon">⇄</span>Workflow</a>
+<a class="nav-item" href="index.html#documents"><span class="nav-icon">▧</span>Documents</a>
+<a class="nav-item" href="index.html#administration"><span class="nav-icon">⚙</span>Administration</a>
+</nav>
+</aside>
+<main class="main-content">
+<header class="topbar"><div><span class="eyebrow">ASSET INTEGRITY MANAGEMENT</span><h1>Services &amp; Fluids</h1></div><div class="topbar-actions"><span class="environment">DEVELOPMENT</span><span class="topbar-status"><span class="status-dot"></span>Caya MVP</span></div></header>
+<section class="content services-content">
+<div class="page-panel">
+<div class="equipment-header"><div><h2>Services &amp; Fluids</h2><p class="placeholder">Controlled engineering master data. Service and Fluid are separate objects.</p></div></div>
+<div class="section">
+<div class="equipment-header"><div><h3>Fluid Database</h3><p class="placeholder">Fluid names are user-defined.</p></div><button class="primary-btn" id="add-fluid">+ Add Fluid</button></div>
+<div class="equipment-toolbar"><input id="fluid-search" class="search-input" placeholder="Search fluid by name..."></div>
+<div id="fluid-list"></div>
 </div>
-
-<div class="modal" id="fluid-modal">
-  <div class="modal-card">
-    <h2>Create Fluid</h2>
-    <div class="field"><label>Fluid Name *</label><input id="fluid-name" placeholder="e.g. Water, Ethylene, Wash Oil"></div>
-    <div class="field"><label>Description</label><textarea id="fluid-description" rows="3" placeholder="Optional description"></textarea></div>
-    <div class="actions"><button class="secondary-btn" id="cancel-fluid">Cancel</button><button class="primary-btn" id="save-fluid">Create Fluid</button></div>
-  </div>
+<div class="section">
+<div class="equipment-header"><div><h3>Services</h3><p class="placeholder">Services will reference fluids from the Fluid Database.</p></div><button class="primary-btn" id="add-service">+ Add Service</button></div>
+<div class="empty-state">No service records yet.</div>
 </div>
-
+</div>
+</section>
+<footer class="footer">Caya • Asset Integrity Management Platform • CSAS Version 1.0</footer>
+</main>
+</div>
+<div class="modal" id="fluid-modal"><div class="modal-card">
+<h2>Create Fluid</h2>
+<div class="field"><label>Fluid Name *</label><input id="fluid-name" placeholder="e.g. Water, Ethylene, Wash Oil"></div>
+<div class="field"><label>Description</label><textarea id="fluid-description" rows="3" placeholder="Optional description"></textarea></div>
+<div class="actions"><button class="secondary-btn" id="cancel-fluid">Cancel</button><button class="primary-btn" id="save-fluid">Create Fluid</button></div>
+</div></div>
 <script>
-const defaultFluids=[
- {id:'FLD-001',name:'Water',description:'Generic water fluid definition',status:'Active',revision:'01'},
- {id:'FLD-002',name:'Ethylene',description:'Generic ethylene fluid definition',status:'Active',revision:'01'},
- {id:'FLD-003',name:'Wash Oil',description:'Generic wash oil fluid definition',status:'Active',revision:'01'}
-];
+const defaultFluids=[{id:'FLD-001',name:'Water',description:'Generic water fluid definition',status:'Active',revision:'01'},{id:'FLD-002',name:'Ethylene',description:'Generic ethylene fluid definition',status:'Active',revision:'01'},{id:'FLD-003',name:'Wash Oil',description:'Generic wash oil fluid definition',status:'Active',revision:'01'}];
 function getFluids(){try{const x=JSON.parse(localStorage.getItem('caya-fluids'));return Array.isArray(x)&&x.length?x:defaultFluids}catch(e){return defaultFluids}}
 function saveFluids(x){localStorage.setItem('caya-fluids',JSON.stringify(x))}
-function renderFluids(){
- const q=document.getElementById('fluid-search').value.toLowerCase();
- const rows=getFluids().filter(x=>x.name.toLowerCase().includes(q));
- document.getElementById('fluid-list').innerHTML=rows.length?'<table><thead><tr><th>Fluid ID</th><th>Fluid Name</th><th>Description</th><th>Status</th><th>Revision</th></tr></thead><tbody>'+rows.map(x=>'<tr><td>'+x.id+'</td><td><a class="link">'+x.name+'</a></td><td>'+x.description+'</td><td>'+x.status+'</td><td>'+x.revision+'</td></tr>').join('')+'</tbody></table>':'<div class="empty">No fluids found.</div>';
-}
+function renderFluids(){const q=document.getElementById('fluid-search').value.toLowerCase();const rows=getFluids().filter(x=>x.name.toLowerCase().includes(q));document.getElementById('fluid-list').innerHTML=rows.length?'<div class="table-wrap"><table class="equipment-table"><thead><tr><th>Fluid ID</th><th>Fluid Name</th><th>Description</th><th>Status</th><th>Revision</th></tr></thead><tbody>'+rows.map(x=>'<tr><td>'+x.id+'</td><td><strong>'+x.name+'</strong></td><td>'+x.description+'</td><td>'+x.status+'</td><td>'+x.revision+'</td></tr>').join('')+'</tbody></table></div>':'<div class="empty-state">No fluids found.</div>'}
 document.getElementById('add-fluid').onclick=()=>document.getElementById('fluid-modal').style.display='flex';
 document.getElementById('cancel-fluid').onclick=()=>document.getElementById('fluid-modal').style.display='none';
 document.getElementById('fluid-search').oninput=renderFluids;
-document.getElementById('save-fluid').onclick=()=>{
- const name=document.getElementById('fluid-name').value.trim();
- if(!name){alert('Fluid Name is required.');return}
- const fluids=getFluids();
- if(fluids.some(x=>x.name.toLowerCase()===name.toLowerCase())){alert('This fluid already exists.');return}
- const n=fluids.length+1;
- fluids.push({id:'FLD-'+String(n).padStart(3,'0'),name,description:document.getElementById('fluid-description').value.trim(),status:'Active',revision:'01'});
- saveFluids(fluids);document.getElementById('fluid-name').value='';document.getElementById('fluid-description').value='';document.getElementById('fluid-modal').style.display='none';renderFluids();
-};
-document.getElementById('add-service').onclick=()=>alert('Service creation will be implemented after the Fluid database is reviewed.');
+document.getElementById('save-fluid').onclick=()=>{const name=document.getElementById('fluid-name').value.trim();if(!name){alert('Fluid Name is required.');return}const fluids=getFluids();if(fluids.some(x=>x.name.toLowerCase()===name.toLowerCase())){alert('This fluid already exists.');return}const n=fluids.reduce((m,x)=>{const v=parseInt(String(x.id).replace(/\D/g,''),10);return Number.isFinite(v)?Math.max(m,v):m},0)+1;fluids.push({id:'FLD-'+String(n).padStart(3,'0'),name,description:document.getElementById('fluid-description').value.trim(),status:'Active',revision:'01'});saveFluids(fluids);document.getElementById('fluid-name').value='';document.getElementById('fluid-description').value='';document.getElementById('fluid-modal').style.display='none';renderFluids()};
+document.getElementById('add-service').onclick=()=>alert('Service creation will be implemented after the Fluid Database is reviewed.');
 renderFluids();
 </script>
 </body>
